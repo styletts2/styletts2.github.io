@@ -301,9 +301,6 @@
 				  </tr>
 				</tbody>
 			</table>
-
-			<p style="font-size:10pt; color:grey;">* Since we only obtained samples on in-distribution texts from the authors for NaturalSpeech, this section does not contain samples from NaturalSpeech. </p>
-
 		</div>
 		
 
@@ -311,7 +308,6 @@
 			<a name="vctk"><h2>3. Multi-Speaker (VCTK)</h2></a>
 			<hr>
 			<p>This section contains samples from our multi-speaker VCTK model, alongside the reference audios that were used to generate these samples. Note that StyleTTS 2 faithfully replicates the speaking styles (e.g., background noise, pitch tone, voice etc.) of the reference audios, making it more similar to the reference than the ground truth. </p>
-			<p>With a fixed number of speakers, we can simply store the speaker embeddings for each individual post-training, without the need for reference audio during inference. The reference audio is provided only to support our findings in Table 1. </p>
 
 		  <table>
 			<tbody>
@@ -606,17 +602,17 @@
 				</tr>
 				<tr>
 				  <td class="first-col">LJSpeech</td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/happy1.wav"></audio></td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/sad1.wav"></audio></td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/angry1.wav"></audio></td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/surprised1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/happy1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/sad1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/angry1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/surprised1.wav"></audio></td>
 				</tr>
 				<tr>
 				  <td class="first-col">Unseen Speaker</td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/happy1.wav"></audio></td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/sad1.wav"></audio></td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/angry1.wav"></audio></td>
-				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/surprised1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/happy1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/sad1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/angry1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/surprised1.wav"></audio></td>
 				</tr>
 				</tbody>
 			  </table>
@@ -765,7 +761,7 @@
 		</div>
 		
 		<div>
-			<a name="lj_ood"><h2>8. Ablation Study</h2></a>
+			<a name="ab"><h2>8. Ablation Study</h2></a>
 
 			<hr>
 			<p>This section provides samples from ablated models using text from the test-clean subset of the LibriTTS dataset. The differences may be nuanced, so below we have outlined each model variant and its implications:</p>
