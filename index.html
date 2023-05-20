@@ -1,1 +1,876 @@
-test
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Audio Samples from StyleTTS 2</title>
+		<style>
+			div {
+			margin-bottom: 32px;
+			}
+			
+			.github.td {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			
+			#toc_container {
+			background: #f9f9f9 none repeat scroll 0 0;
+			border: 1px solid #aaa;
+			display: table;
+			font-size: 95%;
+			padding-top: 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-bottom: 8px;
+			width: auto;
+			}
+			
+			#toc_container ul  {
+			  list-style: outside none none !important; margin-left: -40px;
+			}
+			
+			.id {
+			width: 245px;
+			}
+			
+			.ood {
+			width: 280px;
+			}
+			
+			.first-col {
+			padding-right: 20px;
+			white-space: nowrap;
+			}
+				
+		  .text {
+			font-style: italic;
+			color: #666666;
+		  }
+			
+		</style>
+	</head>
+	
+	<body>
+		<article>
+			<header>
+				<h1>Audio Samples from "StyleTTS 2: Towards Human-Level Text-to-Speech through Style Diffusion and Adversarial Training with Large Speech Language Models"</h1>
+			</header>
+		</article>
+		
+		
+		<div>
+			<b>Abstract: </b>In this paper, we present StyleTTS 2, a text-to-speech (TTS) model that leverages style diffusion and adversarial training with large speech language models (SLMs) to achieve human-level TTS synthesis. StyleTTS 2 differs from its predecessor by modeling styles as a latent random variable through diffusion models to generate the most suitable style for the text without requiring reference speech, achieving efficient latent diffusion while benefiting from the diverse speech synthesis offered by diffusion models. Furthermore, we employ large pre-trained SLMs, such as WavLM, as discriminators with our novel differentiable duration modeling for end-to-end training, resulting in improved speech naturalness. StyleTTS 2 surpasses human recordings on the single-speaker LJSpeech dataset and matches it on the multispeaker VCTK dataset as judged by native English speakers. Moreover, when trained on the LibriTTS dataset, our model outperforms previous publicly available models for zero-shot speaker adaptation. This work achieves the first human-level TTS synthesis on both single and multispeaker datasets, showcasing the potential of style diffusion and adversarial training with large SLMs.
+		</div>
+		
+		<h2>Contents</h2>
+			<div id="toc_container" style="padding-top:0px;">
+			<ul>
+				<li><a href="#lj_id"> 1. Single-Speaker (LJSpeech, In-Distribution Texts)
+				<li><a href="#lj_ood"> 2. Single-Speaker (LJSpeech, Out-Of-Distribution Texts)
+				<li><a href="#vctk"> 3. Multi-Speaker (VCTK)
+				<li><a href="#libri"> 4. Zero-shot Speaker Adaptation (LibriTTS)
+				<li><a href="#long"> 5. Longform Narration
+				<li><a href="#emo"> 6. Speech Expressiveness
+				<li><a href="#var"> 7. Speech Diversity
+				<li><a href="#ab"> 8. Ablation Study
+
+			</ul>
+		</div>
+		
+		<div>
+			<a name="lj_id"><h2>1. Single-Speaker (LJSpeech, In-Distribution Texts)</h2></a>
+			<hr>
+			<p></p>
+			
+			<p><b>Text: </b><span class="text">After the construction and action of the machine had been explained, the doctor asked the governor what kind of men he had commanded at Goree,</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>NaturalSpeech</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/GT/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS2/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/NaturalSpeech/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/JETS/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/VITS/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS/00005.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<p><b>Text: </b><span class="text">The lax discipline maintained in Newgate was still further deteriorated by the presence of two other classes of prisoners who ought never to have been inmates of such a jail.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>NaturalSpeech</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/GT/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS2/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/NaturalSpeech/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/JETS/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/VITS/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS/00004.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+
+			<p><b>Text: </b><span class="text">Maltby and Co. would issue warrants on them deliverable to the importer, and the goods were then passed to be stored in neighboring warehouses.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>NaturalSpeech</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/GT/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS2/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/NaturalSpeech/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/JETS/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/VITS/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS/00003.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<!--- Demo has become too long, comment out one sample so that each section contains only 4 samples.
+			<p><b>Text: </b><span class="text">and gave the garnish for the common side at that sum, which is five shillings more than Mr. Neild says was extorted on the common side.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>NaturalSpeech</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/GT/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS2/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/NaturalSpeech/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/JETS/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/VITS/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS/00002.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table> --->
+			
+			<p><b>Text: </b><span class="text">it is not possible to state with scientific certainty that a particular small group of fibers come from a certain piece of clothing.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>NaturalSpeech</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/GT/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS2/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/NaturalSpeech/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/JETS/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/VITS/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LJSpeech/ID/StyleTTS/00001.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div>
+			<a name="lj_ood"><h2>2. Single-Speaker (LJSpeech, Out-Of-Distribution Texts)</h2></a>
+			<hr>
+			<p>This section contains OOD samples from eight audiobooks described in Appendix E. The ground truth audios were taken from <a href="https://librivox.org/reader/11049">LibriVox</a>. Note the sample quality difference between this section and previous section. </p>
+
+			<p><b>Text: </b><span class="text">Then leaving the corpse within the house they go themselves to and fro about the city and beat themselves, with their garments bound up by a girdle</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/GT/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS2/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/JETS/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/VITS/00005.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS/00005.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+
+
+
+			<p><b>Text: </b><span class="text">Write your name and address clearly. Mail a note and a duplicate list at the time you send the box.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/GT/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS2/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/JETS/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/VITS/00001.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS/00001.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<p><b>Text: </b><span class="text">Indeed, she is said to have angled with Napoleonic strategy for that same offer, and to have won it only after a sharp struggle of wits.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/GT/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS2/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/JETS/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/VITS/00002.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS/00002.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+
+			<!--- Demo has become too long, comment out one sample so that each section contains only 4 samples.
+			<p><b>Text: </b><span class="text">All authorities save one seem to agree that this verb is a pure Americanism, and that it is derived from the name of Charles Lynch, a Virginia justice of the peace,</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/GT/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS2/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/JETS/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/VITS/00003.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS/00003.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table> --->
+			
+			<p><b>Text: </b><span class="text">not as a lifeless thing, but with the same enjoyment of rest as gladdened the hearts of the two beings, who, with gratitude and love</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Ground Truth</th>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/GT/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS2/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/JETS/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/VITS/00004.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/LJSpeech/OOD/StyleTTS/00004.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+
+			<p style="font-size:10pt; color:grey;">* Since we only obtained samples on in-distribution texts from the authors for NaturalSpeech, this section does not contain samples from NaturalSpeech. </p>
+
+		</div>
+		
+
+		<div>
+			<a name="vctk"><h2>3. Multi-Speaker (VCTK)</h2></a>
+			<hr>
+			<p>This section contains samples from our multi-speaker VCTK model, alongside the reference audios that were used to generate these samples. Note that StyleTTS 2 faithfully replicates the speaking styles (e.g., background noise, pitch tone, voice etc.) of the reference audios, making it more similar to the reference than the ground truth. </p>
+			<p>With a fixed number of speakers, we can simply store the speaker embeddings for each individual post-training, without the need for reference audio during inference. The reference audio is provided only to support our findings in Table 1. </p>
+
+		  <table>
+			<tbody>
+			<tr>
+			  <td>
+				<h4>Text</h4>
+			  </td>
+			  <td class="text">
+				Since then physicists have found that it is not reflection, but refraction by the raindrops which causes the rainbows.
+			  </td>
+			  <td class="text">
+				Six spoons of fresh snow peas, five thick slabs of blue cheese, and maybe a snack for her brother Bob.
+			  </td>
+			  <td class="text">
+				She can scoop these things into three red bags, and we will go meet her Wednesday at the train station.
+			  </td>
+			  <td class="text">
+				Jim Wallace, the justice minister, acknowledged that prisoner numbers were a concern.
+			  </td>
+			</tr>
+			<tr>
+			  <td class="first-col">Ground Truth</td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/GT/p234_019.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/GT/p254_003.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/GT/p262_005.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/GT/p271_232.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col">Reference</td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/Ref/p234_019.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/Ref/p254_003.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/Ref/p262_005.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/Ref/p271_232.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col">StyleTTS 2</td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/StyleTTS2/p234_019.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/StyleTTS2/p254_003.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/StyleTTS2/p262_005.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/StyleTTS2/p271_232.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col">VITS</td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/VITS/p234_019.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/VITS/p254_003.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/VITS/p262_005.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/VCTK/VITS/p271_232.wav"></audio></td>
+			</tr>
+			</tbody>
+		  </table>
+		</div>
+		
+		
+		<div>
+			<a name="libri"><h2>4. Zero-shot Speaker Adaptation (LibriTTS)</h2></a>
+			<hr>
+			<p>This section contains samples from our multi-speaker LibriTTS model. For each model, the size of the training set is provided. Note that all speakers are unseen during the training process. </p>
+
+		  <table>
+			<tbody>
+			<tr>
+			  <td>
+				<h4>Text</h4>
+			  </td>
+			  <td class="text">
+				Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech.
+			  </td>
+			  <td class="text">
+				Thus did this humane and right minded father comfort his unhappy daughter, and her mother embracing her again, did all she could to soothe her feelings.	
+			  </td>
+			  <td class="text">
+				And lay me down in my cold bed and leave my shining lot.
+			  </td>
+			  <td class="text">
+				The army found the people in poverty and left them in comparative wealth.	
+			  </td>
+			</tr>
+			<tr>
+			  <td class="first-col"><b>Ground Truth</b></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/GT/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/GT/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/GT/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/GT/4077-13754-0000.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col"><b>Reference</b></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/Ref/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/Ref/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/Ref/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/Ref/4077-13754-0000.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col"><b>StyleTTS 2</b> (~245 Hours)</td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS2/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS2/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS2/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS2/4077-13754-0000.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col"><b>VALL-E</b> (~60k Hours)</td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VallE/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VallE/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VallE/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VallE/4077-13754-0000.wav"></audio></td>
+			</tr>
+			<!--- <tr>
+			  <td class="first-col"><b>NaturalSpeech 2</b> (~44k Hours)</td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/NaturalSpeech2/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/NaturalSpeech2/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/NaturalSpeech2/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/NaturalSpeech2/4077-13754-0000.wav"></audio></td>
+			</tr> --->
+			<tr>
+			  <td class="first-col"><b>StyleTTS</b> (~245 Hours)</td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/StyleTTS/4077-13754-0000.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col"><b>VITS</b> (~245 Hours)</td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VITS/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VITS/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VITS/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/VITS/4077-13754-0000.wav"></audio></td>
+			</tr>
+			<tr>
+			  <td class="first-col"><b>YourTTS</b> (~300 Hours)</td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/YourTTS/1221-135767-0014.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/YourTTS/5639-40744-0020.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/YourTTS/908-157963-0027.wav"></audio></td>
+			  <td><audio controls="" preload="none"><source src="wavs/LibriTTS/YourTTS/4077-13754-0000.wav"></audio></td>
+			</tr>
+			</tbody>
+		  </table>
+		  
+			<hr>
+			It is noteworthy that our model matches the generalization capabilities of VALL-E, including maintaining the acoustic environment and speaker's emotion, but with 250x less data. The subsequent samples are sourced from the official VALL-E demo page.
+			
+			<h3>Acoustic Environment Maintenance</h3>
+
+			<p><b>Text: </b><span class="text">As friends thing I definitely I've got more male friends.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Reference</th>
+					<th>StyleTTS 2</th>
+					<th>VALL-E</th>
+					<th>Ground Truth</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/Ref/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/VallE/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/GT/4.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			
+			<p><b>Text: </b><span class="text">Everything is run by computer but you got to know how to think before you can do a computer.	</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Reference</th>
+					<th>StyleTTS 2</th>
+					<th>VALL-E</th>
+					<th>Ground Truth</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/Ref/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/VallE/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/GT/3.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<p><b>Text: </b><span class="text">Then out in LA you guys got a whole another ball game within California to worry about.	</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Reference</th>
+					<th>StyleTTS 2</th>
+					<th>VALL-E</th>
+					<th>Ground Truth</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/Ref/5.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/5.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/VallE/5.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/LibriTTS/GT/5.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<h3>Speaker’s Emotion Maintenance</h3>
+			<span class="text">We have to reduce the number of plastic bags.</span>
+			  <table>
+				<tbody>
+				<tr>
+				  <td>
+					<h4>Emotion</h4>
+				  </td>
+				  <td align="center">
+					<h4>Anger</h4>
+				  </td>
+				  <td align="center">
+					<h4>Sleepy</h4>
+				  </td>
+				  <td align="center">
+					<h4>Amused</h4>
+				  </td>
+				  <td align="center">
+					<h4>Disgusted</h4>
+				  </td>
+				</tr>
+				<tr>
+				  <td class="first-col">Reference</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/Ref/anger.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/Ref/sleepy.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/Ref/amused.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/Ref/disgusted.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">StyleTTS 2</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/anger.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/sleepy.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/amused.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/StyleTTS2/disgusted.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">Vall-E</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/VallE/anger.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/VallE/sleepy.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/VallE/amused.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/LibriTTS/VallE/disgusted.wav"></audio></td>
+				</tr>
+				</tbody>
+			  </table>
+
+		</div>
+		
+		<div>
+			<a name="long"><h2>5. Longform Narration</h2></a>
+			<hr>
+			<p>The abstract of this paper is synthesized using Algorithm 1 described in Appendix B.</p>
+			<p>Note that the abstract is highly OOD as it contains numerous technical terms, vastly differing from the texts in the training set. Our model exhibits robustness against OOD texts in longform narration. </p>
+
+			<table>
+				<tbody>
+				  <tr>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none"><source src="wavs/abstract/styletts2.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/abstract/jets.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/abstract/vits.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/abstract/styletts.mp3"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+
+		</div>
+		
+		<div>
+			<a name="emo"><h2>6. Speech Expressiveness</h2></a>
+			<hr>
+			<p>The samples below were synthesized using texts generated by GPT-4 in four distinct emotions: happiness, sadness, anger, and surprise. These samples were generated using both LJSpeech and LibriTTS models, in support of Figure 2.</p>
+			<p>Additionally, we demonstrate the potential to synthesize expressive speech from an unseen speaker for this task using the first speaker (1221-135767) from <a href="#libri">section 4</a>.</p>
+			  <table>
+				<tbody>
+				<tr>
+				  <td>
+					<h4>Text</h4>
+				  </td>
+				  <td  width="22%">
+					<b>Happy:</b> <span class="text">We are happy to invite you to join us on a journey to the past, where we will visit the most amazing monuments ever built by human hands.</span>
+				  </td>
+				  <td  width="22%">
+					<b>Sad:</b> <span class="text">I am sorry to say that we have suffered a severe setback in our efforts to restore prosperity and confidence. </span>
+				  </td>
+				  <td  width="22%">
+					<b>Angry:</b> <span class="text">The field of astronomy is a joke! Its theories are based on flawed observations and biased interpretations. </span>
+				  </td>
+				  <td  width="22%">
+					<b>Surprised:</b> <span class="text">I can't believe it! You mean to tell me that you have discovered a new species of bacteria in this pond? </span>
+				  </td>
+				</tr>
+				<tr>
+				  <td class="first-col">LJSpeech</td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/happy1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/sad1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/angry1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LJSpeech/surprised1.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">Unseen Speaker</td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/happy1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/sad1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/angry1.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/emotion/LibriTTS/surprised1.wav"></audio></td>
+				</tr>
+				</tbody>
+			  </table>
+			  
+			  <table>
+				<tbody>
+				<tr>
+				  <td>
+					<h4>Text</h4>
+				  </td>
+				  <td  width="22%">
+					<b>Happy:</b> <span class="text">He was a merry fellow, this Jack Sheppard, and his exploits were the talk of the town.</span>
+				  </td>
+				  <td  width="22%">
+					<b>Sad:</b> <span class="text">He was condemned to death, and suffered on the gallows at Tyburn, protesting his innocence to the last, and leaving behind him a touching farewell to his wife and children.</span>
+				  </td>
+				  <td  width="22%">
+					<b>Angry:</b> <span class="text">We must angrily reject the status quo that benefits only the rich!</span>
+				  </td>
+				  <td  width="22%">
+					<b>Surprised:</b> <span class="text">Holmes, you astound me! How did you deduce that the murderer was none other than the victim's own brother? </span>
+				  </td>
+				</tr>
+				<tr>
+				  <td class="first-col">LJSpeech</td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/happy2.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/sad2.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/angry2.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LJSpeech/surprised2.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">Unseen Speaker</td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/happy2.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/sad2.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/angry2.wav"></audio></td>
+				  <td><audio controls="" preload="none"><source src="wavs/Emotion/LibriTTS/surprised2.wav"></audio></td>
+				</tr>
+				</tbody>
+			  </table>
+			<hr> 
+			<h3> Style Transfer</h3>
+			<p>Since our model disentangles speech and style vectors, it is capable of style transfer to any input text. This is achieved by first sampling a style with an emotional text and then synthesizing the speech with this emotional style vector.</p>
+			<p>The ensuing samples were synthesized with styles sampled through style diffusion conditioned on texts with explicit emotions. Note that neither the target text nor the reference audio contains any emotional content.</p>
+			<p></p>
+			<span class="text" style="font-weight:bold;">Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech.</span>
+			<p></p>
+
+			<table>
+				<tbody>
+				  <tr>
+					<th>Angry</th>
+					<th>Happy</th>
+					<th>Sad</th>
+					<th>Surprised</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="ood"><source src="wavs/Emotion/LibriTTS/angry.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/Emotion/LibriTTS/happy.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/Emotion/LibriTTS/sad.wav"></audio></td>
+					<td><audio controls preload="none" class="ood"><source src="wavs/Emotion/LibriTTS/surprised.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+
+		</div>
+		
+		
+		<div>
+			<a name="var"><h2>7. Speech Diversity</h2></a>
+			<hr>
+			  <h4>How much variation is there?</h4>
+			  <table>
+				<tbody>
+				<tr>
+				  <td class="first-col">StyleTTS 2</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/1.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/2.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/3.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/4.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/5.wav"></audio></td>
+
+				</tr>
+				<tr>
+				  <td class="first-col">VITS</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/1.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/2.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/3.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/4.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/5.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">FastDiff</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/1.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/2.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/3.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/4.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/5.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">StyleTTS 2 (unseen speaker)</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/LibriTTS/1.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/LibriTTS/2.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/LibriTTS/3.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/LibriTTS/4.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/LibriTTS/5.wav"></audio></td>
+
+				</tr>
+				
+				</tbody>
+			  </table>
+			  
+			  <!--- The demo has been too long, cut some unneccessary part to save space.
+			  <h4>StyleTTS 2: Towards Human-Level Text-to-Speech through Style Diffusion and Adversarial Training with Large Speech Language Models</h4>
+			  <table>
+				<tbody>
+				<tr>
+				  <td class="first-col">StyleTTS 2</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/6.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/7.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/8.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/9.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/StyleTTS2/10.wav"></audio></td>
+
+				</tr>
+				<tr>
+				  <td class="first-col">VITS</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/6.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/7.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/8.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/9.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/VITS/10.wav"></audio></td>
+				</tr>
+				<tr>
+				  <td class="first-col">FastDiff</td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/1.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/2.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/3.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/4.wav"></audio></td>
+				  <td><audio controls="" preload="none" class="id"><source src="wavs/Variation/FastDiff/5.wav"></audio></td>
+				</tr>
+				</tbody>
+			  </table> --->
+			  
+			<p style="font-size:10pt; color:grey;">* Since JETS and StyleTTS are deterministic and we found no perceptible differences between different samples generated by ProDiff, we only show samples for VITS and FastDiff to support the results in Table 4. </p>
+
+		</div>
+		
+		<div>
+			<a name="lj_ood"><h2>8. Ablation Study</h2></a>
+
+			<hr>
+			<p>This section provides samples from ablated models using text from the test-clean subset of the LibriTTS dataset. The differences may be nuanced, so below we have outlined each model variant and its implications:</p>
+			<ul>
+			<li><b>Baseline</b>: Our proposed model, StyleTTS 2. 
+			<li><b>No Style Diffusion</b>: This variant encodes style vectors from random references rather than sampling them from style diffusion, as in the original StyleTTS. The model is identical to the baseline model, except style diffusion is not used during inference. This modification impacts all aspects of the speech, including pauses, emotions, speaking rates, and sound quality, as these factors are highly correlated with the style vector, which in turn most significantly affects naturalness in our experiment. 
+			<li><b>No Prosodic Predictor</b>: This model does not have a prosodic predictor in its architecture. The primary impact of this is on the sound quality due to the divergent gradient from joint training. However, the prosody and pauses are generally natural due to the use of style diffusion and SLM adversarial training.
+			<li><b>No SLM Discriminator</b>: This model does not include adversarial training with speech language models (SLMs). The naturalness of the speech, specifically the prosody and pauses, may be compromised. In some cases, sound quality may also be affected as SLM discriminators also capture acoustic mismatches.
+			<li><b>No Differentiable Upsampler</b>: In this version, gradients are not propagated back to the duration predictor during SLM adversarial training. The primary effect is on the speech's pauses (duration), while the prosody remains largely unaffected.
+			<li><b>No OOD Texts</b>: This model does not use out-of-distribution (OOD) texts during adversarial training. Its impact on OOD texts is similar to that of the model lacking SLM discriminators. </ul>
+			<p></p>
+			
+			<p><b>Text: </b><span class="text">The answer to this will depend upon the length of the play, for upon the length depends the hour at which the curtain rises.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Baseline</th>
+					<th>No Style Diffusion</th>
+					<th>No Prosodic Predictor</th>
+					<th>No SLM Discriminator</th>
+					<th>No Differentiable Upsampler</th>
+					<th>No OOD Texts</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/baseline/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSD/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noPE/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSLM/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noDDM/4.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noOOD/4.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			
+			<p><b>Text: </b><span class="text">Well, sir, we never make coffee but in the afternoon. Would you like a good bavaroise, or a decanter of orgeat?</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Baseline</th>
+					<th>No Style Diffusion</th>
+					<th>No Prosodic Predictor</th>
+					<th>No SLM Discriminator</th>
+					<th>No Differentiable Upsampler</th>
+					<th>No OOD Texts</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/baseline/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSD/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noPE/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSLM/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noDDM/3.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noOOD/3.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<p><b>Text: </b><span class="text">On the evening of the day of Alexandra's call at the Shabatas', a heavy rain set in.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Baseline</th>
+					<th>No Style Diffusion</th>
+					<th>No Prosodic Predictor</th>
+					<th>No SLM Discriminator</th>
+					<th>No Differentiable Upsampler</th>
+					<th>No OOD Texts</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/baseline/2.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSD/2.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noPE/2.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSLM/2.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noDDM/2.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noOOD/2.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<p><b>Text: </b><span class="text">Ojo was hungry, though; so he divided the piece of bread upon the table and ate his half for breakfast, washing it down with fresh, cool water from the brook.</span></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>Baseline</th>
+					<th>No Style Diffusion</th>
+					<th>No Prosodic Predictor</th>
+					<th>No SLM Discriminator</th>
+					<th>No Differentiable Upsampler</th>
+					<th>No OOD Texts</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/baseline/1.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSD/1.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noPE/1.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noSLM/1.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noDDM/1.wav"></audio></td>
+					<td><audio controls preload="none" class="id"><source src="wavs/Ablation/noOOD/1.wav"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+		<div>
+
+		
+	</body>
+	
+
+</html>
