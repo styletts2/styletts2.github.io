@@ -768,7 +768,7 @@
 			<ul>
 			<li><b>Baseline</b>: Our proposed model, StyleTTS 2. 
 			<li><b>No Style Diffusion</b>: This variant encodes style vectors from random references rather than sampling them from style diffusion, as in the original StyleTTS. The model is identical to the baseline model, except style diffusion is not used during inference. This modification impacts all aspects of the speech, including pauses, emotions, speaking rates, and sound quality, as these factors are highly correlated with the style vector, which in turn most significantly affects naturalness in our experiment. 
-			<li><b>No Prosodic Predictor</b>: This model does not have a prosodic predictor in its architecture. The primary impact of this is on the sound quality due to the divergent gradient from joint training. However, the prosody and pauses are generally natural due to the use of style diffusion and SLM adversarial training.
+			<li><b>No Prosodic Style Encoder</b>: This model does not have a prosodic style encoder in its architecture. The primary impact of this is on the sound quality due to the divergent gradient from joint training. However, the prosody and pauses are generally natural due to the use of style diffusion and SLM adversarial training.
 			<li><b>No SLM Discriminator</b>: This model does not include adversarial training with speech language models (SLMs). The naturalness of the speech, specifically the prosody and pauses, may be compromised. In some cases, sound quality may also be affected as SLM discriminators also capture acoustic mismatches.
 			<li><b>No Differentiable Upsampler</b>: In this version, gradients are not propagated back to the duration predictor during SLM adversarial training. The primary effect is on the speech's pauses (duration), while the prosody remains largely unaffected.
 			<li><b>No OOD Texts</b>: This model does not use out-of-distribution (OOD) texts during adversarial training. Its impact on OOD texts is similar to that of the model lacking SLM discriminators. </ul>
@@ -780,7 +780,7 @@
 				  <tr>
 					<th>Baseline</th>
 					<th>No Style Diffusion</th>
-					<th>No Prosodic Predictor</th>
+					<th>No Prosodic Style Encoder</th>
 					<th>No SLM Discriminator</th>
 					<th>No Differentiable Upsampler</th>
 					<th>No OOD Texts</th>
@@ -803,7 +803,7 @@
 				  <tr>
 					<th>Baseline</th>
 					<th>No Style Diffusion</th>
-					<th>No Prosodic Predictor</th>
+					<th>No Prosodic Style Encoder</th>
 					<th>No SLM Discriminator</th>
 					<th>No Differentiable Upsampler</th>
 					<th>No OOD Texts</th>
@@ -825,7 +825,7 @@
 				  <tr>
 					<th>Baseline</th>
 					<th>No Style Diffusion</th>
-					<th>No Prosodic Predictor</th>
+					<th>No Prosodic Style Encoder</th>
 					<th>No SLM Discriminator</th>
 					<th>No Differentiable Upsampler</th>
 					<th>No OOD Texts</th>
@@ -847,7 +847,7 @@
 				  <tr>
 					<th>Baseline</th>
 					<th>No Style Diffusion</th>
-					<th>No Prosodic Predictor</th>
+					<th>No Prosodic Style Encoder</th>
 					<th>No SLM Discriminator</th>
 					<th>No Differentiable Upsampler</th>
 					<th>No OOD Texts</th>
