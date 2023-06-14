@@ -70,7 +70,30 @@
 		
 		<div>
 			<b>Abstract: </b>In this paper, we present StyleTTS 2, a text-to-speech (TTS) model that leverages style diffusion and adversarial training with large speech language models (SLMs) to achieve human-level TTS synthesis. StyleTTS 2 differs from its predecessor by modeling styles as a latent random variable through diffusion models to generate the most suitable style for the text without requiring reference speech, achieving efficient latent diffusion while benefiting from the diverse speech synthesis offered by diffusion models. Furthermore, we employ large pre-trained SLMs, such as WavLM, as discriminators with our novel differentiable duration modeling for end-to-end training, resulting in improved speech naturalness. StyleTTS 2 surpasses human recordings on the single-speaker LJSpeech dataset and matches it on the multispeaker VCTK dataset as judged by native English speakers. Moreover, when trained on the LibriTTS dataset, our model outperforms previous publicly available models for zero-shot speaker adaptation. This work achieves the first human-level TTS synthesis on both single and multispeaker datasets, showcasing the potential of style diffusion and adversarial training with large SLMs.
+			<p></p>
+			<table>
+				<tbody>
+				  <tr>
+					<th>StyleTTS 2</th>
+					<th>JETS</th>
+					<th>VITS</th>
+					<th>StyleTTS</th>
+				  </tr>
+				  <tr>
+					<td><audio controls preload="none"><source src="wavs/abstract/styletts2.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/abstract/jets.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/abstract/vits.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/abstract/styletts.mp3"></audio></td>
+				  </tr>
+				</tbody>
+			</table>
 		</div>
+		
+		<div>
+			<p>The abstract of this paper is synthesized using Algorithm 1 described in Appendix B.</p>
+			<p>Note that the abstract is highly out-of-distribution (OOD) as it contains numerous technical terms, vastly differing from the texts in the training set. </p>
+		</div>
+		
 		
 		<h2>Contents</h2>
 			<div id="toc_container" style="padding-top:0px;">
@@ -564,22 +587,24 @@
 		<div>
 			<a name="long"><h2>5. Longform Narration</h2></a>
 			<hr>
-			<p>The abstract of this paper is synthesized using Algorithm 1 described in Appendix B.</p>
-			<p>Note that the abstract is highly OOD as it contains numerous technical terms, vastly differing from the texts in the training set. Our model exhibits robustness against OOD texts in longform narration. </p>
-
+			<p>We provide one example of long paragraph synthesized using Algorithm 1 described in Appendix B.</p>
+			<p>The paragraph is the <strong>Fresh and Preserved Fruit for the Market</strong> chapter of <i><a href="https://www.gutenberg.org/files/30441/30441-h/30441-h.htm">Canned Fruit, Preserves, and Jellies: Household Methods of Preparation</a></i> by Maria Parloa. The ground truth clip was taken from <a href="https://librivox.org/canned-fruit-preserves-and-jellies-by-maria-parloa/">LibriVox</a>. </p>
+			
 			<table>
 				<tbody>
 				  <tr>
+					<th>Ground Truth</th>
 					<th>StyleTTS 2</th>
 					<th>JETS</th>
 					<th>VITS</th>
 					<th>StyleTTS</th>
 				  </tr>
 				  <tr>
-					<td><audio controls preload="none"><source src="wavs/abstract/styletts2.mp3"></audio></td>
-					<td><audio controls preload="none"><source src="wavs/abstract/jets.mp3"></audio></td>
-					<td><audio controls preload="none"><source src="wavs/abstract/vits.mp3"></audio></td>
-					<td><audio controls preload="none"><source src="wavs/abstract/styletts.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/Long/GT.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/Long/StyleTTS2.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/Long/JETS.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/Long/VITS.mp3"></audio></td>
+					<td><audio controls preload="none"><source src="wavs/Long/StyleTTS.mp3"></audio></td>
 				  </tr>
 				</tbody>
 			</table>
